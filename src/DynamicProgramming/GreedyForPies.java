@@ -75,6 +75,7 @@ public class GreedyForPies
     
     public static void main(String[] args) 
     {
+        System.out.println("Test by passing in numbers in console.");
         GreedyForPies a = new GreedyForPies(); 
         Scanner input = new Scanner(System.in);
         int aSize = input.nextInt();
