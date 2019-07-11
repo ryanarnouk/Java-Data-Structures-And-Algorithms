@@ -94,7 +94,7 @@ public class LinkedList<E> {
     public void print() {
        Node current = head; 
        while(current.next != null) {
-           // loop while in bounds of array
+           // loop while in bounds of list
            System.out.print(current.contents);
            current = current.next;
        }
