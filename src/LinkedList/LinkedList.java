@@ -6,6 +6,7 @@
  */
 package LinkedList;
 
+import java.util.Stack;
 /**
  *
  * @author Ryan
@@ -102,6 +103,39 @@ public class LinkedList<E> {
        System.out.println();
     }
     
+    public void printinreverse() {
+        // use a stack to loop through the data 
+        Stack<Node> stack = new Stack(); 
+        
+        Node current = head;
+        
+        while (current != null) {
+            // append to stack
+            stack.add(current);
+            current = current.next;
+        }
+        
+        while (!stack.isEmpty()) {
+            Node node = stack.pop(); // pop off last node and print it 
+            System.out.print(node.contents);
+        }
+        System.out.println();
+    }
+       
+    public void reverselist() {
+        Node current = head;
+        Node prev = null; 
+        
+        while (current != null) {
+            // rearrange the order of the linked list by pointing each node in reverse order 
+            // 1 -> 2 -> 3 becomes 1 <- 2 <- 3 and the order rearranges
+            Node nextnode = current.next; 
+            current.next = prev;
+            prev = current;
+            current = nextnode;
+        }
+    }
+    
     public static void main(String[] args) {
         LinkedList NewList = new LinkedList();
         NewList.add(1);
@@ -114,5 +148,14 @@ public class LinkedList<E> {
         
         NewList.add(2, 1); // append element with data "2" to index 1
         NewList.print(); 
+        
+        // print in reverse
+        System.out.println("Reverse print:");
+        NewList.printinreverse();
+        
+        // reverse the whole linked list
+        System.out.println("New reversed list:");
+        NewList.reverselist();
+        NewList.print();
     }
 }
