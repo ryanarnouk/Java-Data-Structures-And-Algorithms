@@ -136,6 +136,14 @@ public class LinkedList<E> {
         }
     }
     
+    public void insertAtHead(Node head, E data) {
+        Node newnode = new Node(data);
+        // set next of new data to linked list
+        newnode.next = head;
+        // set head to new temp linked list
+        head = newnode;
+    }
+    
     public static void main(String[] args) {
         LinkedList NewList = new LinkedList();
         NewList.add(1);
